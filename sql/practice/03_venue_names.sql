@@ -3,10 +3,10 @@ create view v_matches_venue as
 select *,
         replace(
             trim(
-              substr(venue, q,
+              substr(venue, 1,
                 case when instr(venue, ',') > 0
                      then instr(venue,',') - 1
-                     else lenght(venue)
+                     else length(venue)
                 end)),
               'm.chinnaswamy','m chinnaswamy') as venue_clean
 from matches;
